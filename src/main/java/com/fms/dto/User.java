@@ -1,4 +1,4 @@
-package com.fms.entities;
+package com.fms.dto;
 
 public class User {
 

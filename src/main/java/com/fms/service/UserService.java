@@ -1,6 +1,6 @@
 package com.fms.service;
 
-import com.fms.entities.User;
+import com.fms.dto.User;
 
 public interface UserService {
 

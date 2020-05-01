@@ -3,7 +3,7 @@ package com.fms.dao;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.fms.entities.User;
+import com.fms.dto.User;
 
 public class UserDaoImp implements UserDao {
 

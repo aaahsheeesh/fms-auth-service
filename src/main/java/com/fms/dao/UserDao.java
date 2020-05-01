@@ -1,6 +1,6 @@
 package com.fms.dao;
 
-import com.fms.entities.User;
+import com.fms.dto.User;
 
 public interface UserDao {
 

@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fms.entities.BaseResponse;
-import com.fms.entities.User;
+import com.fms.dto.BaseResponse;
+import com.fms.dto.User;
 import com.fms.service.UserService;
 import com.fms.utils.ValidationUtil;
 

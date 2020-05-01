@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.fms.dao.UserDao;
 import com.fms.dao.UserDaoImp;
-import com.fms.entities.User;
+import com.fms.dto.User;
 
 public class UserServiceImp implements UserService {
 	
