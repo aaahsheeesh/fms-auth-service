@@ -3,6 +3,7 @@ package com.fms.controllers;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.ldap.embedded.EmbeddedLdapProperties.Validation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fms.entities.BaseResponse;
 import com.fms.entities.User;
+import com.fms.exceptions.ValidationUtil;
 import com.fms.service.UserService;
 
 @RestController
@@ -27,9 +29,13 @@ public class AuthController {
 
 		if (!email.isPresent() || email.get().isEmpty()) {
 			return new BaseResponse<>(false, "EMAIL MISSING", null);
-		} else if (!password.isPresent() || password.get().isEmpty()) {
+		}else if(!ValidationUtil.validateEmail(email.get())) {
+			return new BaseResponse<>(false, "INCORRECT EMAIL", null);
+		}else if (!password.isPresent() || password.get().isEmpty()) {
 			return new BaseResponse<>(false, "PASSWORD MISSING", null);
-		} else {
+		}else if(!ValidationUtil.validatePassword(password.get())) {
+			return new BaseResponse<>(false, "PASSWORD LENGTH SHOULD BE MORE THAN 8 CHARCTERS", null);
+		}else {
 			User user = userService.login(email.get(), password.get());
 			if (user == null) {
 				return new BaseResponse<>(false, "NO SUCH USER PRESENT", null);

@@ -15,8 +15,8 @@ public class UserDaoImp implements UserDao {
 	}
 
 	public void setUserMap() {
-		userDb.put("gauti@gmail.com", new User(1, "Gautam", "Gautam", "7042312883", "gauti@gmail.com", "ADMIN"));
-		userDb.put("akash@gmail.com", new User(2, "Akash", "Akash", "7042312883", "akash@gmail.com", "USER"));
+		userDb.put("gauti@gmail.com", new User(1, "Gautam", "password@123", "7042312883", "gauti@gmail.com", "ADMIN"));
+		userDb.put("akash@gmail.com", new User(2, "Akash", "password@123", "7042312883", "akash@gmail.com", "USER"));
 	}
 
 	@Override
@@ -27,6 +27,7 @@ public class UserDaoImp implements UserDao {
 		} else if (!user.getUserPassword().equals(password)) {
 			return null;
 		}
+		user.setActive(true);
 		return user;
 	}
 
