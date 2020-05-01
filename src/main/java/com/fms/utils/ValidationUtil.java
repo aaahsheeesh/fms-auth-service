@@ -1,4 +1,4 @@
-package com.fms.exceptions;
+package com.fms.utils;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

@@ -30,6 +30,14 @@ public class UserDaoImp implements UserDao {
 		user.setActive(true);
 		return user;
 	}
+	
+	
+
+	@Override
+	public String logout(int id) {
+		//TODO: Change active status of user in db
+		return null;
+	}
 
 	private User searchUser(String username) {
 		if (userDb.containsKey(username)) {

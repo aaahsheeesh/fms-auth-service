@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.ldap.embedded.EmbeddedLdapProperties.Validation;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fms.entities.BaseResponse;
 import com.fms.entities.User;
-import com.fms.exceptions.ValidationUtil;
 import com.fms.service.UserService;
+import com.fms.utils.ValidationUtil;
 
 @RestController
 @RequestMapping(path = "/auth")
@@ -44,5 +45,10 @@ public class AuthController {
 			}
 		}
 	}
-
+	
+	@PostMapping("/logout")
+	public BaseResponse<Object> logout(@RequestParam(name ="id")int id){
+		//TODO: Call Service layer to update user status  
+		return new BaseResponse<>(true, "SUCCESSFULLY LOGGED OUT", null);
+	}
 }

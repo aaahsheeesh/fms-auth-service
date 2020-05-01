@@ -7,7 +7,7 @@ import com.fms.dao.UserDaoImp;
 import com.fms.entities.User;
 
 public class UserServiceImp implements UserService {
-
+	
 	@Autowired
 	private UserDao userDao;
 	
@@ -21,4 +21,9 @@ public class UserServiceImp implements UserService {
 		return userDao.login(email, password);
 	}
 
+
+	@Override
+	public String logout(int id) {
+		return userDao.logout(id);
+	}
 }
