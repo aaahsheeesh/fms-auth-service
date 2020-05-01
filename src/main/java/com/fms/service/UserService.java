@@ -1,0 +1,8 @@
+package com.fms.service;
+
+import com.fms.entities.User;
+
+public interface UserService {
+
+	public abstract User login(String email , String password);
+}
