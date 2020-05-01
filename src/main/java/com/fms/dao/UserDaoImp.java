@@ -23,13 +23,10 @@ public class UserDaoImp implements UserDao {
 	public User login(String email, String password) {
 		User user = searchUser(email);
 		if (user == null) {
-			System.out.println("Username  doesnot exist");
 			return null;
 		} else if (!user.getUserPassword().equals(password)) {
-			System.out.println("Password does not match");
 			return null;
 		}
-
 		return user;
 	}
 
