@@ -8,5 +8,8 @@ public interface UserService {
 	public abstract User login(String email , String password) throws UserNotFoundException;
 	
 	public abstract String logout(int id);
+	
+	public abstract User register(User user);
+
 
 }

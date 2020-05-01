@@ -1,16 +1,16 @@
 package com.fms.dto;
 
-public class BaseResponse<T> {
+public class ResponseTemplate<T> {
 
 	private boolean status;
 	private String message;
 	private T data;
 
-	public BaseResponse() {
+	public ResponseTemplate() {
 		super();
 	}
 	
-	public BaseResponse(boolean status, String message, T data) {
+	public ResponseTemplate(boolean status, String message, T data) {
 		super();
 		this.status = status;
 		this.message = message;

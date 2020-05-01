@@ -32,6 +32,15 @@ public class UserDaoImp implements UserDao {
 		return user;
 	}
 
+	
+	
+	
+	@Override
+	public User register(User user) {
+		userDb.put(user.getEmail(), user);
+		return user;
+	}
+
 	@Override
 	public String logout(int id) {
 		// TODO: Change active status of user in db

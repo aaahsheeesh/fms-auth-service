@@ -22,6 +22,10 @@ public class UserServiceImp implements UserService {
 		return userDao.login(email, password);
 	}
 
+	@Override
+	public User register(User user) {
+		return userDao.register(user);
+	}
 
 	@Override
 	public String logout(int id) {
