@@ -2,8 +2,10 @@ package com.fms.dao;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 import com.fms.dto.User;
+import com.fms.exceptions.UserNotFoundException;
 
 public class UserDaoImp implements UserDao {
 
@@ -20,22 +22,19 @@ public class UserDaoImp implements UserDao {
 	}
 
 	@Override
-	public User login(String email, String password) {
+	public User login(String email, String password) throws UserNotFoundException {
 		User user = searchUser(email);
 		if (user == null) {
-			return null;
+			throw new UserNotFoundException("EMAIL NOT FOUND " + email);
 		} else if (!user.getUserPassword().equals(password)) {
 			return null;
 		}
-		user.setActive(true);
 		return user;
 	}
-	
-	
 
 	@Override
 	public String logout(int id) {
-		//TODO: Change active status of user in db
+		// TODO: Change active status of user in db
 		return null;
 	}
 

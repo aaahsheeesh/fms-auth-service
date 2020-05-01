@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.fms.dao.UserDao;
 import com.fms.dao.UserDaoImp;
 import com.fms.dto.User;
+import com.fms.exceptions.UserNotFoundException;
 
 public class UserServiceImp implements UserService {
 	
@@ -17,7 +18,7 @@ public class UserServiceImp implements UserService {
 	}
 
 	@Override
-	public User login(String email, String password) {
+	public User login(String email, String password) throws UserNotFoundException {
 		return userDao.login(email, password);
 	}
 

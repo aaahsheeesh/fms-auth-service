@@ -25,11 +25,11 @@ public class BaseResponse<T> {
 		this.status = status;
 	}
 
-	public String getErrorMsg() {
+	public String getMessage() {
 		return message;
 	}
 
-	public void setErrorMsg(String message) {
+	public void setMessage(String message) {
 		this.message = message;
 	}
 
