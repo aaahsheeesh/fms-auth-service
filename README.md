@@ -1,2 +1,2 @@
-# fms-login-service
-Flight Management System Login Service Using Spring Boot
+# fms-auth-service
+Flight Management System Auth Service Using Spring Boot
