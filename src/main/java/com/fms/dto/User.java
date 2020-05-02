@@ -2,30 +2,30 @@ package com.fms.dto;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-
-import com.fms.customvalidation.PhoneNumberConstraint;
+import javax.validation.constraints.Pattern;
 
 public class User {
 
 	private int userId;
-	
-	@NotEmpty(message = "Please provide a name")
+
+	@NotEmpty(message = "Name cannot be blank")
 	private String userName;
-	
-	@NotEmpty(message = "Please provide a password")
+
+	@NotEmpty(message = "Password cannot be blank")
 	private String userPassword;
-	
-	@NotEmpty(message = "Please provide a phone")
-	@PhoneNumberConstraint
+
+	@NotEmpty(message = "Phone cannot be blank")
+	@Pattern(regexp = "^[1-9][0-9]{9}$", 
+		message = "Invalid phone number should be 10digit and must not start with 0")
 	private String userPhone;
-	
-	@NotEmpty(message = "Please provide a email")
-	@Email
+
+	@NotEmpty(message = "Email cannot be blank")
+	@Email(message = "Invalid email")
 	private String email;
-	
-	@NotEmpty(message = "Please provide a UserType")
+
+	@NotEmpty(message = "User type cannot be blank")
 	private String userType;
-	
+
 	private boolean active;
 
 	public User() {
