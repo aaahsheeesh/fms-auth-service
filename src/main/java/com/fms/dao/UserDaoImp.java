@@ -25,7 +25,7 @@ public class UserDaoImp implements UserDao {
 	public User login(String email, String password) throws UserNotFoundException {
 		User user = searchUser(email);
 		if (user == null) {
-			throw new UserNotFoundException("EMAIL NOT FOUND " + email);
+			throw new UserNotFoundException("User not found");
 		} else if (!user.getUserPassword().equals(password)) {
 			return null;
 		}
