@@ -1,8 +1,8 @@
 package com.fms.dto;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
-import com.fms.customvalidation.EmailConstraint;
 import com.fms.customvalidation.PhoneNumberConstraint;
 
 public class User {
@@ -20,7 +20,7 @@ public class User {
 	private String userPhone;
 	
 	@NotEmpty(message = "Please provide a email")
-	@EmailConstraint
+	@Email
 	private String email;
 	
 	@NotEmpty(message = "Please provide a UserType")
