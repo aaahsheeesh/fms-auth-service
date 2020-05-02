@@ -1,13 +1,26 @@
 package com.fms.dto;
 
+import javax.validation.constraints.NotEmpty;
+
 public class User {
 
 	private int userId;
+	
+	@NotEmpty(message = "Please provide a name")
 	private String userName;
+	
+	@NotEmpty(message = "Please provide a password")
 	private String userPassword;
+	
+	@NotEmpty(message = "Please provide a phone")
 	private String userPhone;
+	
+	@NotEmpty(message = "Please provide a email")
 	private String email;
+	
+	@NotEmpty(message = "Please provide a UserType")
 	private String userType;
+	
 	private boolean active;
 
 	public User() {
