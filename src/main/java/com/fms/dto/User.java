@@ -1,35 +1,52 @@
 package com.fms.dto;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 
-public class UserDTO {
+@Entity
+public class User {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "user_id")
+	private int userId;
+	
 	@NotEmpty(message = "Name cannot be blank")
+	@Column(name = "user_name")
 	private String userName;
 
 	@NotEmpty(message = "Password cannot be blank")
+	@Column(name = "user_password")
 	private String userPassword;
 
 	@NotEmpty(message = "Phone cannot be blank")
 	@Pattern(regexp = "^[1-9][0-9]{9}$", message = "Invalid phone number should be 10digit and must not start with 0")
+	@Column(name = "user_phone")
 	private String userPhone;
 
 	@NotEmpty(message = "Email cannot be blank")
 	@Email(message = "Invalid email")
+	@Column(name = "user_email")
 	private String email;
 
 	@NotEmpty(message = "User type cannot be blank")
+	@Column(name = "user_type")
 	private String userType;
 
+	@Column(name = "user_state")
 	private boolean active;
 
-	public UserDTO() {
+	public User() {
 		super();
 	}
 
-	public UserDTO(String userName, String userPassword, String userPhone, String email, String userType) {
+	public User(String userName, String userPassword, String userPhone, String email, String userType) {
 		super();
 		this.userName = userName;
 		this.userPassword = userPassword;

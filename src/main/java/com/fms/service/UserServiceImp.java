@@ -4,8 +4,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.fms.dto.UserDTO;
-import com.fms.entities.User;
+import com.fms.dto.User;
 import com.fms.exceptions.UserNotFoundException;
 import com.fms.repository.UserRepository;
 
@@ -33,7 +32,7 @@ public class UserServiceImp implements UserService {
 	}
 
 	@Override
-	public User register(UserDTO userDTO) {
+	public User register(User userDTO) {
 		User user = new User();
 		user.setUserName(userDTO.getUserName());
 		user.setUserPassword(userDTO.getUserPassword());

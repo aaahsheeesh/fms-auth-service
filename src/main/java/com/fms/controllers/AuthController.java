@@ -3,7 +3,6 @@ package com.fms.controllers;
 import java.util.Optional;
 
 import javax.validation.Valid;
-import javax.validation.constraints.Min;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,8 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fms.dto.ResponseDTO;
-import com.fms.dto.UserDTO;
-import com.fms.entities.User;
+import com.fms.dto.User;
 import com.fms.exceptions.UserNotFoundException;
 import com.fms.service.UserService;
 
@@ -45,7 +43,7 @@ public class AuthController {
 	}
 
 	@PostMapping("/register")
-	public ResponseDTO<User> register(@Valid @RequestBody UserDTO userDTO) {
+	public ResponseDTO<User> register(@Valid @RequestBody User userDTO) {
 		return new ResponseDTO<>(true, "Success", userService.register(userDTO));
 	}
 
