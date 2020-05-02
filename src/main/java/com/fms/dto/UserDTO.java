@@ -4,9 +4,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 
-public class User {
-
-	private int userId;
+public class UserDTO {
 
 	@NotEmpty(message = "Name cannot be blank")
 	private String userName;
@@ -15,8 +13,7 @@ public class User {
 	private String userPassword;
 
 	@NotEmpty(message = "Phone cannot be blank")
-	@Pattern(regexp = "^[1-9][0-9]{9}$", 
-		message = "Invalid phone number should be 10digit and must not start with 0")
+	@Pattern(regexp = "^[1-9][0-9]{9}$", message = "Invalid phone number should be 10digit and must not start with 0")
 	private String userPhone;
 
 	@NotEmpty(message = "Email cannot be blank")
@@ -28,28 +25,19 @@ public class User {
 
 	private boolean active;
 
-	public User() {
+	public UserDTO() {
 		super();
 	}
 
-	public User(int userId, String userName, String userPassword, String userPhone, String email, String userType) {
+	public UserDTO(String userName, String userPassword, String userPhone, String email, String userType) {
 		super();
-		this.userId = userId;
 		this.userName = userName;
 		this.userPassword = userPassword;
 		this.userPhone = userPhone;
 		this.email = email;
 		this.userType = userType;
 	}
-
-	public int getUserId() {
-		return userId;
-	}
-
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-
+	
 	public String getUserName() {
 		return userName;
 	}
@@ -100,7 +88,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", userName=" + userName + ", userPhone=" + userPhone + ", email=" + email
+		return "User [userName=" + userName + ", userPhone=" + userPhone + ", email=" + email
 				+ ", userType=" + userType + "]";
 	}
 
